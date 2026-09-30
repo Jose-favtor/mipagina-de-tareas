@@ -1,0 +1,244 @@
+/*
+#003B70 azul principal
+#002B52 azul oscuro
+#E6F0F7 azul claro
+#80A8C8 azul medio
+#C0CFDC azul grisáceo
+#FFFFFF blanco
+*/
+
+* {
+  box-sizing: border-box;
+  color: #002b52;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+  margin: 1px;
+  display: grid;
+  background-color: #e6f0f7;
+
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: auto auto 1fr auto;
+
+  grid-template-areas:
+    "header header"
+    "nav nav"
+    "main aside"
+    "footer footer";
+
+  min-height: 100vh;
+}
+
+
+/* ================================
+   HEADER
+================================ */
+
+header {
+  justify-content: center;
+  align-items: center;
+
+  grid-area: header;
+  display: flex;
+
+  gap: 20px;
+  padding: 20px;
+
+  background-color: #ffffff;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 40px;
+  color: #003b70;
+}
+
+header img {
+  width: 150px;
+  height: auto;
+
+  transition: all 0.9s ease;
+}
+
+header img:hover {
+  transform: scale(1.1);
+}
+
+
+/* ================================
+   NAVEGACIÓN (Adaptado al HTML)
+================================ */
+
+nav {
+  justify-content: center;
+  grid-area: nav;
+  padding: 5px;
+  display: flex;
+  background-color: #e6f0f7;
+}
+
+nav ul {
+  display: flex;
+  list-style: none; /* Quitamos los puntos de lista por defecto */
+  padding: 0;
+  margin: 0;
+  gap: 10px;
+}
+
+/* Cambiamos la propiedad para que afecte correctamente al enlace que envuelve al li o viceversa */
+nav ul li {
+  list-style: none;
+}
+
+nav ul li a {
+  display: block;
+  width: 15vw;
+
+  margin: 8px;
+  padding: 8px;
+
+  text-decoration: none;
+  background-color: #003b70;
+  color: #ffffff; /* Aseguramos que el texto sea blanco */
+
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+
+  border-radius: 5px;
+  transition: all 0.9s ease;
+}
+
+nav ul li a:hover {
+  color: #ffffff;
+  background-color: #002b52;
+  transform: scale(1.08);
+  border-radius: 8px;
+}
+
+
+/* ================================
+   CONTENIDO PRINCIPAL
+================================ */
+
+main {
+  grid-area: main;
+  background-color: #c0cfdc;
+}
+
+section {
+  padding: 20px;
+  height: 100%;
+  grid-area: section;
+  background-color: #ffffff;
+}
+
+article {
+  min-height: 150px;
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: #e6f0f7;
+}
+
+article img {
+  width: 70%;
+}
+
+
+/* ================================
+   ASIDE
+================================ */
+
+aside {
+  grid-area: aside;
+  padding: 20px;
+  color: #ffffff;
+  background-color: #80a8c8;
+  min-height: 100%;
+}
+
+
+/* ================================
+   FOOTER
+================================ */
+
+footer {
+  grid-area: footer;
+  padding: 20px;
+  background-color: #002b52;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+footer h4 {
+  margin-bottom: 10px;
+  color: #ffffff;
+  text-align: center;
+}
+
+footer ul {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+footer a {
+  text-decoration: none;
+  padding: 10px 20px;
+  color: #e6f0f7;
+}
+
+footer a:hover {
+  color: #80a8c8;
+  text-decoration: underline;
+}
+
+
+/* ================================
+   DISEÑO RESPONSIVE
+================================ */
+
+@media (max-width: 1280px) {
+
+  body {
+    grid-template-columns: 1fr;
+
+    grid-template-areas:
+      "header"
+      "nav"
+      "main"
+      "aside"
+      "footer";
+
+    font-size: 20px; /* Ajustado de 50px a un tamaño más prudente para que no rompa el diseño */
+    text-align: justify;
+  }
+
+  header {
+    align-items: center;
+    background-color: #80a8c8;
+  }
+
+  nav ul {
+    width: 70vw;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  nav ul li a {
+    width: 100%;
+  }
+
+  footer ul {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+}
