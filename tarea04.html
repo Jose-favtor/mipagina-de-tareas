@@ -180,75 +180,32 @@
             <div class="container px-5 my-5 px-5">
                 <div class="text-center mb-5">
                     <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-envelope"></i></div>
-                    <h2 class="fw-bolder">Ficha de Admisión y Registro</h2>
-                    <p class="lead mb-0">Completa tus datos personales y académicos para procesar tu inscripción</p>
+                    <h2 class="fw-bolder">Registro de Interesados</h2>
+                    <p class="lead mb-0">Completa tus datos para recibir información detallada de admisión</p>
                 </div>
                 <div class="row gx-5 justify-content-center">
-                    <div class="col-lg-8">
+                    <div class="col-lg-6">
                         <form id="registroForm" class="p-4 bg-white rounded shadow-sm">
-                            <h4 class="mb-3 text-secondary border-bottom pb-2">1. Datos Personales</h4>
-                            <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <div class="form-floating">
-                                        <select class="form-select" id="tipoDoc" required>
-                                            <option value="" selected disabled>Seleccione tipo...</option>
-                                            <option value="DNI">DNI</option>
-                                            <option value="CE">Carnet de Extranjería</option>
-                                            <option value="Pasaporte">Pasaporte</option>
-                                        </select>
-                                        <label for="tipoDoc">Tipo de Documento</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <div class="form-floating">
-                                        <input class="form-control" id="nroDoc" type="text" placeholder="Número de documento" required />
-                                        <label for="nroDoc">Nro. de Documento</label>
-                                    </div>
-                                </div>
-                            </div>
                             <div class="form-floating mb-3">
                                 <input class="form-control" id="name" type="text" placeholder="Nombres y Apellidos" required />
-                                <label for="name">Nombres y Apellidos Completos</label>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <div class="form-floating">
-                                        <input class="form-control" id="birthdate" type="date" required />
-                                        <label for="birthdate">Fecha de Nacimiento</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <div class="form-floating">
-                                        <select class="form-select" id="genero" required>
-                                            <option value="" selected disabled>Seleccione género...</option>
-                                            <option value="M">Masculino</option>
-                                            <option value="F">Femenino</option>
-                                            <option value="Otro">Otro</option>
-                                        </select>
-                                        <label for="genero">Género</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <h4 class="mb-3 mt-4 text-secondary border-bottom pb-2">2. Contacto y Ubicación</h4>
-                            <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <div class="form-floating">
-                                        <input class="form-control" id="email" type="email" placeholder="name@example.com" required />
-                                        <label for="email">Correo Electrónico</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <div class="form-floating">
-                                        <input class="form-control" id="phone" type="tel" placeholder="Celular" required />
-                                        <label for="phone">Teléfono / Celular</label>
-                                    </div>
-                                </div>
+                                <label for="name">Nombres y Apellidos</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="address" type="text" placeholder="Dirección" required />
-                                <label for="address">Dirección Actual / Distrito</label>
+                                <input class="form-control" id="email" type="email" placeholder="name@example.com" required />
+                                <label for="email">Correo Electrónico</label>
                             </div>
-                            <h4 class="mb-3 mt-4 text-secondary border-bottom pb-2">3. Información Académica</h4>
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="phone" type="tel" placeholder="Teléfono" required />
+                                <label for="phone">Teléfono / Celular</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="dni" type="text" placeholder="DNI" required />
+                                <label for="dni">Número de DNI</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="birthdate" type="date" required />
+                                <label for="birthdate">Fecha de Nacimiento</label>
+                            </div>
                             <div class="form-floating mb-3">
                                 <select class="form-select" id="carreraSelect" required>
                                     <option value="" selected disabled>Seleccione una carrera...</option>
@@ -261,16 +218,18 @@
                             <div class="form-floating mb-3">
                                 <select class="form-select" id="turnoSelect" required>
                                     <option value="" selected disabled>Seleccione turno...</option>
-                                    <option value="manana">Turno Mañana (7:45 A.M. / 1:50 P.M.)</option>
-                                    <option value="tarde">Turno Tarde (1:30 P.M. / 6:30 P.M.)</option>
-                                    <option value="noche">Turno Noche (5:45 P.M. / 10:45 P.M.)</option>
+                                    <option value="manana">Turno Mañana</option>
+                                    <option value="tarde">Turno Tarde</option>
+                                    <option value="noche">Turno Noche</option>
                                 </select>
                                 <label for="turnoSelect">Turno de Preferencia</label>
                             </div>
-                            <div id="formAlert" class="alert d-none mb-3" role="alert"></div>
-                            <div class="d-grid mt-4">
-                                <button class="btn btn-primary btn-lg" id="submitButton" type="submit">Enviar Registro de Postulación</button>
+                            <div class="form-floating mb-3">
+                                <textarea class="form-control" id="mensaje" placeholder="Comentarios o dudas" style="height: 100px"></textarea>
+                                <label for="mensaje">Comentarios o Preguntas Adicionales</label>
                             </div>
+                            <div id="formAlert" class="alert d-none mb-3" role="alert"></div>
+                            <div class="d-grid"><button class="btn btn-primary btn-lg" id="submitButton" type="submit">Enviar Registro</button></div>
                         </form>
                     </div>
                 </div>
@@ -279,11 +238,5 @@
         <footer class="py-5 bg-dark">
             <div class="container px-5"><p class="m-0 text-center text-white">Copyright &copy; Instituto Tecnológico 2026 - Todos los derechos reservados.</p></div>
         </footer>
-        <script src="js/alert.js"></script>
-    </body>
-</html>
-       
-        <script src="js/alert.js"></script>
-        
     </body>
 </html>
